@@ -1,9 +1,10 @@
 import { CLASS_LIST } from "../../../consts";
 import { useState } from "react";
-import { Attribute } from "../../attribute/components/Attribute";
+import { useAppContext } from "../../app/state/app.context";
 
-export function Class({ className, attributes }) {
+export function Class({ className }) {
   const [isActive, setIsActive] = useState(false);
+  const { attributes } = useAppContext();
   const data = CLASS_LIST[className];
   const isMeetMinimums = Object.keys(data).every((attribute) => {
     const value = attributes[attribute];

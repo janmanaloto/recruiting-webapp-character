@@ -4,7 +4,7 @@ import { Class } from "../../class/components/Class";
 import { useAppContext } from "../state/app.context";
 
 export function AppSection({ children }) {
-  const { attributes, handleChange } = useAppContext();
+  const { handleChange } = useAppContext();
 
   return (
     <section className="App-section">
@@ -19,11 +19,7 @@ export function AppSection({ children }) {
       </div>
       <div>
         {Object.keys(CLASS_LIST).map((className) => (
-          <Class
-            key={className}
-            className={className}
-            attributes={attributes}
-          />
+          <Class key={className} className={className} />
         ))}
       </div>
     </section>
