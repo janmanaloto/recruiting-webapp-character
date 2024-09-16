@@ -1,10 +1,9 @@
 import { useAttribute } from "../hooks/attribute.hook";
 
-export function Attribute({ attribute, initialValue, onChange }) {
+export function Attribute({ attribute, initialValue }) {
   const { value, modifier, onIncrement, onDecrement } = useAttribute({
     attribute,
     initialValue,
-    onChange,
   });
 
   return (

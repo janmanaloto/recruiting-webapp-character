@@ -1,22 +1,15 @@
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from "../../../consts";
 import { Attribute } from "../../attribute/components/Attribute";
 import { Class } from "../../class/components/Class";
-import { useAppContext } from "../state/app.context";
 import Skill from "../../skills/components/Skill";
 
-export function AppSection({ children }) {
-  const { handleChange } = useAppContext();
-
+export function AppSection() {
   return (
     <section className="App-section">
       <div>
         <h2>Attributes</h2>
         {ATTRIBUTE_LIST.map((attribute) => (
-          <Attribute
-            key={attribute}
-            attribute={attribute}
-            onChange={handleChange}
-          />
+          <Attribute key={attribute} attribute={attribute} />
         ))}
       </div>
       <div>

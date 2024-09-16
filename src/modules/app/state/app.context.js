@@ -5,14 +5,14 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [attributes, setAttributes] = useState({});
 
-  const handleChange = ({ name, value }) => {
+  const handleAttributesChange = ({ name, value }) => {
     setAttributes((attributes) => ({
       ...attributes,
       [name]: value,
     }));
   };
   return (
-    <AppContext.Provider value={{ attributes, handleChange }}>
+    <AppContext.Provider value={{ attributes, handleAttributesChange }}>
       {children}
     </AppContext.Provider>
   );
@@ -20,4 +20,9 @@ export const AppProvider = ({ children }) => {
 
 export const useAppContext = () => {
   return useContext(AppContext);
+};
+
+export const useAttributes = () => {
+  const { attributes } = useAppContext();
+  return attributes;
 };
